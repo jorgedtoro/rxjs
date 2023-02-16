@@ -22,6 +22,7 @@ export class ProductComponent {
     })
   }
   addToCart(product: Product) {
+
     this.storeService.addProduct(product)
   }
 

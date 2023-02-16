@@ -11,8 +11,5 @@
   </div>
 </nav>
 <div class="cart" [ngClass]="{ show: viewCart }">
-  <div class="productCart" *ngFor="let product of myCart$ | async">
-    <p>{{ product.title }}</p>
-    <p>$ {{ product.price }}</p>
-  </div>
+  <app-cart></app-cart>
 </div>

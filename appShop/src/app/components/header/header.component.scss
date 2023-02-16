@@ -3,6 +3,9 @@
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid lightgrey;
+    background-color: #70A0AF;
+    color:white;
+    
     &-cart{
         position: relative;
         margin-right: 1rem;
@@ -28,5 +31,21 @@
     display: none;
 }
 .show{
-    display: block;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    // align-items: center;
+    z-index: 1;
+    position: absolute;
+    background-color: white;
+    border-radius: 0.5rem;
+    border:1px solid #70A0AF;
+    right:0px;
+    min-width: 40%;
+    app-cart{
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        
+    }
 }

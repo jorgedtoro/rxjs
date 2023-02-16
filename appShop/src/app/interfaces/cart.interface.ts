@@ -1,8 +1,8 @@
-export interface Product {
-    id: string;
+export interface Cart {
+    idProduct: string,
     title: string;
     price: number;
     description: string;
-    images: string[];
+    images: string;
     cantidad: number
 }

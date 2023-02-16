@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, lastValueFrom } from 'rxjs';
 import { Product } from '../interfaces/product.interface';
+import { Cart } from '../interfaces/cart.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -28,9 +29,39 @@ export class StoreService {
   // getPromise(): Promise<any[]> {
   //   return lastValueFrom(this.httpClient.get<any[]>(`${this.baseUrl}products`))
   // }
+
+  //añado producto al carrito
   addProduct(product: Product) {
-    this.myList.push(product)
-    //emito la lista para los que estén escuchando
-    this.myCart.next(this.myList);
+
+    // debugger;
+    if (this.myList.length === 0) {
+      product.cantidad = 1;
+      this.myList.push(product);
+      //emito la lista para los que estén escuchando
+      this.myCart.next(this.myList);
+
+    } else {
+      const productMod = this.myList.find((element) => {
+        return element.id === product.id
+      })
+      if (productMod) {
+        productMod.cantidad = productMod.cantidad + 1;
+        this.myCart.next(this.myList);
+      } else {
+        product.cantidad = 1;
+        this.myList.push(product);
+        this.myCart.next(this.myList);
+      }
+
+    }
+  }
+
+  findProductById(id: string) {
+    return this.myList.find((element) => {
+      return element.id === id
+    })
+
   }
 }
+
+
