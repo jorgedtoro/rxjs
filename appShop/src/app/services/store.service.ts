@@ -62,6 +62,12 @@ export class StoreService {
     })
 
   }
+  totalCart() {
+    // this.myList.reduce((acc, product) =>{
+    //   return acc = (product.cantidad * product.price)
+    // }
+    // );
+  }
 }
 
 
