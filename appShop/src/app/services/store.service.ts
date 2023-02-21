@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, lastValueFrom } from 'rxjs';
 import { Product } from '../interfaces/product.interface';
-import { Cart } from '../interfaces/cart.interface';
+
 
 @Injectable({
   providedIn: 'root'
@@ -62,11 +62,22 @@ export class StoreService {
     })
 
   }
+
+  deleteProduct(id: string) {
+
+    this.myList = this.myList.filter((product) => {
+      return product.id != id
+    })
+    this.myCart.next(this.myList);
+
+
+  }
   totalCart() {
-    // this.myList.reduce((acc, product) =>{
-    //   return acc = (product.cantidad * product.price)
-    // }
-    // );
+    const total = this.myList.reduce(function (acc, product) { return acc + (product.cantidad * product.price); }, 0)
+    return total
+
+
+
   }
 }
 

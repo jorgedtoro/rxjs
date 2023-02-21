@@ -7,6 +7,9 @@
         <p>{{ product.cantidad }} uds</p>
       </div>
     </div>
+    <div class="productCart-total">
+      <p>$ {{ totalProduct(product.price, product.cantidad) }}</p>
+    </div>
     <div class="productCart-buttons">
       <div class="productCart-buttons-operators">
         <i
@@ -19,9 +22,11 @@
           (click)="updateUnits('add', product.id)"
         ></i>
       </div>
-      <i class="fa-solid fa-trash"></i>
+      <i class="fa-solid fa-trash" (click)="deleteProduct(product.id)"></i>
     </div>
   </article>
-  <div class="cartTotal">$ total carrito</div>
+  <div class="cartTotal">
+    <p class="cartTotal-total">Total: $ {{ totalCart() }}</p>
+  </div>
   <button class="cart-btn">Ir a mi cesta</button>
 </div>

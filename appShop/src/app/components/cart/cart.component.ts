@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/interfaces/product.interface';
 import { StoreService } from 'src/app/services/store.service';
 
@@ -13,7 +14,8 @@ export class CartComponent {
 
   viewCart: boolean = false;
 
-  constructor(private storeService: StoreService) { }
+  constructor(private storeService: StoreService,
+    private router: Router) { }
 
   updateUnits(operation: string, id: string) {
 
@@ -26,10 +28,23 @@ export class CartComponent {
         product.cantidad = product.cantidad + 1;
 
       }
+      if (product.cantidad === 0) {
+        this.deleteProduct(id)
+      }
     }
 
   }
+  totalProduct(price: number, units: number) {
+    return price * units
+  }
+  deleteProduct(id: string) {
+    this.storeService.deleteProduct(id);
 
+  }
+  totalCart() {
+    const result = this.storeService.totalCart();
+    return result;
+  }
 
 
 }

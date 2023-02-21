@@ -10,7 +10,6 @@ import { StoreService } from 'src/app/services/store.service';
 export class MainComponent {
 
 
-
   // constructor() { };
 
   // async ngOnInit() {

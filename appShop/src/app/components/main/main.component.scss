@@ -6,7 +6,10 @@
     padding: 1rem;
     width: 100vw;
     position: relative;
-    // border:1px solid blue;
+    background-color: white;
+    &-title{
+        margin-bottom: 1.5rem;
+    }
     &-products{
        app-product{
            display: flex;
