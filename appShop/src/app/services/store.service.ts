@@ -50,6 +50,7 @@ export class StoreService {
       } else {
         product.cantidad = 1;
         this.myList.push(product);
+        //ojo hay que emitir la lista!!
         this.myCart.next(this.myList);
       }
 
@@ -75,9 +76,6 @@ export class StoreService {
   totalCart() {
     const total = this.myList.reduce(function (acc, product) { return acc + (product.cantidad * product.price); }, 0)
     return total
-
-
-
   }
 }
 

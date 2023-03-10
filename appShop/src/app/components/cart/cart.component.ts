@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { Product } from 'src/app/interfaces/product.interface';
 import { StoreService } from 'src/app/services/store.service';
 
 @Component({
@@ -14,8 +12,7 @@ export class CartComponent {
 
   viewCart: boolean = false;
 
-  constructor(private storeService: StoreService,
-    private router: Router) { }
+  constructor(private storeService: StoreService) { }
 
   updateUnits(operation: string, id: string) {
 
